@@ -1,6 +1,6 @@
 class User
   attr_accessor :name, :address, :email
-  def initialise(attributes = {})
+  def initialize(attributes = {})
     @name = attributes[:name]
     @address = attributes[:address]
     @email = attributes[:email]
