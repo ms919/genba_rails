@@ -6,11 +6,11 @@ table.table.table-hover
     tr
       th = Task.human_attribute_name(:name)
       th = t "activerecord.attributes.task.created_at"
-    tbody
-      - @tasks.each do |task|
-        tr
-          td = task.name
-          td = task.created_at
+  tbody
+    - @tasks.each do |task|
+      tr
+        td = link_to task.name, task_path(task)
+        td = task.created_at
 
 
 
