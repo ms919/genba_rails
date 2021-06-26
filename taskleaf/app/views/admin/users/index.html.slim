@@ -1,0 +1,24 @@
+h1 ユーザー一覧
+= link_to "新規登録", new_admin_user_path, class: "btn btn-primary"
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th = User.human_attribute_name(:name)
+      th = t "activerecord.attributes.user.email"
+      th = t "activerecord.attributes.user.admin"
+      th = t "activerecord.attributes.user.created_at"
+      th = t "activerecord.attributes.user.updated_at"
+      th
+  tbody
+    - @users.each do |usr|
+      tr
+        td = link_to usr.name, admin_user_path(usr)
+        td = usr.email
+        td = usr.admin? ? "あり" : "なし"
+        td = usr.created_at
+        td = usr.updated_at
+        td
+          = link_to "編集", edit_admin_user_path(usr), class: "btn btn-primary mr-3"
+          = link_to "削除", admin_user_path(usr), method: :delete, data: { confirm: "ユーザー「#{usr.name}」を削除します。よろしいですか？" }, class: "btn btn-danger mr-3"
