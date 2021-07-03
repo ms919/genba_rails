@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
 
   def login_required
     redirect_to login_path unless current_user
+    set_locale
+  end
+
+  def set_locale
+    I18n.locale = current_user&.locale || :ja
+    Time.zone = I18n.translate("timezone") || "Asia/Tokyo"
   end
 
 end

@@ -224,3 +224,8 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  timezone: Asia/Tokyo
+  btn:
+    edit: 編集
+    delete: 削除
+    create_task: 新規登録
