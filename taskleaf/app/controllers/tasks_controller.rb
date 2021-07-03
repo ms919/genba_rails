@@ -3,6 +3,10 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks.recent
+    logger.debug "[row]tasks: #{@tasks}"
+    logger.debug "[inspect]tasks: #{@tasks.inspect}"
+    logger.debug "[yaml]tasks: #{@tasks.to_yaml}"
+    # logger.debug "[inspect]tasks: #{@tasks.attributes.inspect}"
   end
 
   def show
